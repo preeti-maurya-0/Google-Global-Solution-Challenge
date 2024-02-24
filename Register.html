@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Craft Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,100&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="/images/logo.png"></a>
+        <div class="nav-links" id="navLinks">
+            <div  class="close-button">
+                <i class="bi bi-x" onclick="hideMenu()"></i>
+            </div>          
+            <ul>
+                <li class="active"><a href="index.html"><i class="bi bi-house-door-fill"></i>Home</a></li>
+                <li><a href="career-resource.html">Career Resource</a>
+                   
+                </li>
+                <li><a href="counselling.html">Counselling</a>
+                   
+                
+                </li>
+                <li><a href="scholarship.html">Scholarships</a>
+                 
+                </li>
+                <li><a href="community.html"><i class="bi bi-people-fill"></i>Community</a>
+                    
+                </li>
+                <li><a href="about.html">About us</a>
+                </li>
+                <li><a href="contact.html"><i class="bi bi-telephone-fill"></i>Contact</a>
+                </li>
+            </ul>
+            
+        </div>
+        <div class="menu">
+            <i class="bi bi-list" onclick="showMenu()"></i>
+        </div>
+        </nav>
+        <div class="contact-col">
+            <a href="" class="hero-btn red-btn">REGISTER NOW</a>
+            <form id="myForm" autocomplete="on">
+                <input id = "username" type="text" name="name" placeholder="Enter Your Name" required>
+                <input id = "email" type="email" name="u_email" placeholder="Enter email address" required>
+                <input id = "interest" type="text" name="interest" placeholder="Enter Your choice for meet or session" required>
+                <textarea id="message" rows="4" name="message" placeholder="Message" required></textarea>
+                <!-- <button type="submit" class="hero-btn red-btn">Send message</button> -->
+                <input type="submit" value="submit" class="hero-btn red-btn" id="submit">
+            </form>
+        </div>
+    </section>
+
+    <!----------Footer------>
+   
+    <script>
+        
+        var navLinks=document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right="0";
+        }
+        function hideMenu(){
+            navLinks.style.right="-200px";
+        }
+
+    </script>
+     <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+            import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+// Your web app's Firebase configuration
+//   use your firebase config here
+const firebaseConfig = {
+  apiKey: "AIzaSyC_3co2bY2y8ymC4FsxHDYhEmtLN2ArBdg",
+  authDomain: "career-craft-hub-2.firebaseapp.com",
+  databaseURL: "https://career-craft-hub-2-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "career-craft-hub-2",
+  storageBucket: "career-craft-hub-2.appspot.com",
+  messagingSenderId: "779459874018",
+  appId: "1:779459874018:web:d5420dafa3d258471762bb"
+};
+// Initialize Firebase
+     const app = initializeApp(firebaseConfig);
+
+//get ref to database services
+      const db = getDatabase(app);
+
+      document.getElementById("submit").addEventListener('click', function(e){
+       e.preventDefault();
+       set(ref(db, 'user/' + document.getElementById("username").value),
+       {
+
+         username: document.getElementById("username").value,
+         email: document.getElementById("email").value,
+         Interest: document.getElementById("interest").value,
+         message: document.getElementById("message").value
+
+       });
+         alert("Registered Sucessfull  !");
+      })
+ </script>
+</body>
+</html>
