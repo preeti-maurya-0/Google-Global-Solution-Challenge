@@ -2,7 +2,7 @@
 
 # Career Craft Hub(Global solution challenge 2024)
 
-It is a web app which is a centralised platform that provides holistic approach to career counselling , educational details , scholarship details , meet with experts that solves their doubts etc , all at one place. By which students of all category can get a better guide on what to study , where , how , every question that comes in the mind of a student while entering , either in intermediate , graduation , post-graduation , or while getting ready for job.
+It is a web app which is a centralised platform that provides holistic approach to career counselling , educational details , scholarship details , meet with experts that solves their doubts etc , all at one place. By which students of all category(pre-matric , matric to intermediate , graduation , post graduation ) can get a better guide on what to study , where , how , every question that comes in the mind of a student while entering , either in intermediate , graduation , post-graduation , or while getting ready for job.
 
 
 
